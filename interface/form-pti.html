@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Laporan Pertagas</title>
+    <!-- style -->
+    <link rel="stylesheet" href="assets/style/input-pti.css" />
+    <!-- style -->
+    <!-- script feather -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- script feather -->
+    <!-- icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0"
+    />
+    <!-- icon -->
+  </head>
+  <body>
+    <header>
+      <img src="assets/img/logo/logo.jpg" alt="logo Rifansi" class="img-logo" />
+      <h2>PT. RIFANSI DWI PUTRA - PT. PERTAMINA GAS ORA</h2>
+    </header>
+    <main>
+      <h3>Laporan PTI Pertagas</h3>
+      <div class="container-main">
+        <form action="" id="form-laporan">
+          <div class="wrapper-input">
+            <label for="tanggal">Tanggal: </label>
+            <input
+              type="datetime-local"
+              name="tanggal"
+              placeholder="tanggal laporan"
+              class="tanggal"
+            />
+          </div>
+          <div class="wrapper-input">
+            <label for="jenisUnit">Jenis Unit: </label>
+            <input
+              type="text"
+              name="jenisUnit"
+              placeholder="jenis unit"
+              class="jenis_unit"
+              list="jenisUnitList"
+              id="jenUn"
+            />
+            <datalist id="jenisUnitList">
+              <option value="Excavator"></option>
+              <option value="Backhoe Loader"></option>
+              <option value="Foco Truck"></option>
+              <option value="Lowboy"></option>
+              <option value="Vacum Truck"></option>
+              <option value="Water Truck"></option>
+              <option value="SG/HWI/CIP"></option>
+            </datalist>
+          </div>
+          <div class="wrapper-input">
+            <label for="noPol">No. Polisi :</label>
+            <input
+              type="text"
+              name="noPol"
+              placeholder="No. Polisi"
+              class="no-polisi"
+              list="noPolList"
+            />
+            <datalist id="noPolList"> </datalist>
+          </div>
+          <div class="wrapper-input">
+            <label for="lokasi">Lokasi: </label>
+            <input
+              type="text"
+              name="lokasi"
+              placeholder="lokasi"
+              class="lokasi"
+            />
+          </div>
+          <div class="wrapper-input">
+            <label for="pekerjaan">Pekerjaan: </label>
+            <input
+              type="text"
+              name="pekerjaan"
+              placeholder="pekerjaan"
+              class="pekerjaan"
+            />
+          </div>
+          <div class="wrapper-input">
+            <label for="temuan">Temuan: </label>
+            <input
+              type="text"
+              name="temuan"
+              placeholder="temuan"
+              class="temuan"
+            />
+          </div>
+          <div class="wrapper-input">
+            <label for="operator">Operator: </label>
+            <input
+              type="text"
+              name="operator"
+              placeholder="operator"
+              class="operator"
+            />
+          </div>
+          <div class="wrapper-input">
+            <label for="status">Status: </label>
+            <input
+              type="text"
+              name="status"
+              placeholder="status"
+              class="status"
+            />
+          </div>
+          <div class="wrapper-input">
+            <label for="kmDriven">KM Driven: </label>
+            <input
+              type="number"
+              name="kmDriven"
+              placeholder="km driven"
+              class="km-driven"
+            />
+          </div>
+          <div class="wrapper-input">
+            <label for="hoursMeter">Hours Meter: </label>
+            <input
+              type="number"
+              name="hoursMeter"
+              placeholder="hour meter"
+              class="hours-meter"
+            />
+          </div>
+          <div class="button-submit">
+            <button type="submit">
+              <span class="material-symbols-outlined"> send </span>
+              submit
+            </button>
+            <button>
+              <span class="material-symbols-outlined"> download </span>
+              download
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="assets/js/script.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

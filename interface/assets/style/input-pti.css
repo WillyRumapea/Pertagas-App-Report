@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+}
+
+header img.img-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  /* border: 1px solid; */
+}
+
+h1 {
+  text-align: center;
+  border: 1px solid;
+  width: 80%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+  padding: 10px;
+  gap: 1rem;
+}
+
+main h3 {
+  text-align: center;
+}
+
+main .container-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1.5rem;
+  width: 45em;
+  gap: 0.8rem;
+  background-color: #eceae4;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+form .wrapper-input {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 300px;
+  gap: 3px;
+  padding: 10px;
+  /* border: 1px solid; */
+}
+
+form .wrapper-input label {
+  width: 240px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* border: 1px solid; */
+}
+
+form .wrapper-input input {
+  width: 260px;
+  text-align: justify;
+  padding: 10px;
+  font-size: 14px;
+  border-top: none;
+  border-left: none;
+  outline: none;
+  border-right: none;
+  text-align: center;
+  border-bottom: 1px solid;
+}
+
+.button-submit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  /* border: 1px solid; */
+}
+
+.button-submit button {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  gap: 5px;
+  padding: 7px;
+  background-color: #fff;
+  border: 0.5px solid;
+  transition: all ease-in-out 0.2s;
+}
+
+.button-submit button:hover {
+  color: #fff;
+  background-color: #0f0f0f;
+  padding: 5px;
+}
