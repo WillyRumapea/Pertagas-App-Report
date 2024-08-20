@@ -102,7 +102,7 @@ app.post("/laporan-attend-list", (req, res) => {
     pelapor,
   } = req.body;
 
-  const sql = `INSERT INTO test_laporan_att_list (tanggal_meeting, jenis_attend_list, lokasi, topik_pembahasan, jumlah_peserta, chairman, pelapor) VALUEs ('${tanggal_meeting}', '${jenis_attend_list}', '${lokasi}', '${topik_pembahasan}', '${jumlah_peserta}', '${chairman}','${pelapor}')`;
+  const sql = `INSERT INTO test_laporan_att_list (tanggal_meeting, jenis_attend_list, lokasi, topik_pembahasan, jumlah_peserta, chairman, pelapor) VALUES ('${tanggal_meeting}', '${jenis_attend_list}', '${lokasi}', '${topik_pembahasan}', '${jumlah_peserta}', '${chairman}','${pelapor}')`;
 
   connect.query(sql, (err, result) => {
     if (err) throw err;
@@ -111,13 +111,54 @@ app.post("/laporan-attend-list", (req, res) => {
         isSuccess: result.affectedRows,
         id: result.insertId,
       };
-      response(200, result, "berhasil meng-inputkan data", res);
+      response(200, data, "berhasil meng-inputkan data", res);
     } else {
-      response(200, result, "gagal input data", res);
+      response(200, data, "gagal input data", res);
     }
   });
 });
 // table attend list
+
+// table hse report
+app.get("/laporan-hse", (req, res) => {
+  const sql = `SELECT * FROM table_laporan_hse`;
+  connect.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length > 0) {
+      response(200, result, "berhasil mendapatkan semua data", res);
+    } else {
+      response(404, result, "tidak ada data yang didapatkan", res);
+    }
+  });
+});
+
+app.post("/laporan-hse", (req, res) => {
+  const {
+    tanggal_report,
+    jenis_report,
+    lokasi,
+    pekerjaan,
+    temuan,
+    rekomendasi,
+    pelapor,
+  } = req.body;
+
+  const sql = `INSERT INTO table_laporan_hse (tanggal_report, jenis_report,lokasi, pekerjaan, temuan, rekomendasi, pelapor) VALUES ('${tanggal_report}', '${jenis_report}', '${lokasi}', '${pekerjaan}', '${temuan}', '${rekomendasi}', '${pelapor}')`;
+
+  connect.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.affectedRows) {
+      const data = {
+        isSucces: result.affectedRows,
+        id: result.insertId,
+      };
+      response(200, data, "berhasil menginputkan data", res);
+    } else {
+      response(404, data, "gagal menginputkan data", res);
+    }
+  });
+});
+// table hse report
 
 app.listen(port, () => {
   console.log(`Aplikasi berjalan di port: ${port}`);

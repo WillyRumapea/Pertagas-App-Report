@@ -59,6 +59,12 @@ form {
   border-radius: 5px;
 }
 
+textarea {
+  width: 210px;
+  text-align: center;
+  padding: 10px;
+}
+
 form .wrapper-input {
   display: flex;
   justify-content: center;
@@ -105,7 +111,8 @@ form .wrapper-input input {
   align-items: center;
   font-size: 15px;
   gap: 5px;
-  padding: 7px;
+  padding: 5px;
+  height: 30px;
   background-color: #fff;
   border: 0.5px solid;
   transition: all ease-in-out 0.2s;
@@ -114,5 +121,5 @@ form .wrapper-input input {
 .button-submit button:hover {
   color: #fff;
   background-color: #0f0f0f;
-  padding: 5px;
+  /* padding: 5px; */
 }

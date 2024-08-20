@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Input Laporan Pertagas</title>
     <!-- style -->
-    <link rel="stylesheet" href="assets/style/attendList.css" />
+    <link rel="stylesheet" href="assets/style/hse-style.css" />
     <!-- style -->
     <!-- icon -->
     <link
@@ -20,9 +20,9 @@
       <h2>PT. RIFANSI DWI PUTRA - PT. PERTAMINA GAS ORA</h2>
     </header>
     <main>
-      <h3>Attend List Pertagas</h3>
+      <h3>HSE Report Pertagas</h3>
       <div class="container-main">
-        <form action="" id="form-attend-list">
+        <form action="" id="form-hse-report">
           <div class="wrapper-input">
             <label for="tanggal">Tanggal: </label>
             <input
@@ -33,19 +33,22 @@
             />
           </div>
           <div class="wrapper-input">
-            <label for="jenisAttendList">Jenis Attend List: </label>
+            <label for="jenisHSE">Jenis HSE: </label>
             <input
               type="text"
-              name="jenisAttendList"
-              placeholder="jenis attend list"
-              list="jenisAtt"
+              name="jenisHSE"
+              placeholder="jenis HSE"
+              list="jenisHSE"
               required
             />
-            <datalist id="jenisAtt">
-              <option value="Toolbox"></option>
-              <option value="Absen Training"></option>
-              <option value="StandDown"></option>
-              <option value="Meeting"></option>
+            <datalist id="jenisHSE">
+              <option value="PPE Inspection"></option>
+              <option value="First Aid Kit Inspection"></option>
+              <option value="APAR"></option>
+              <option value="House Keeping"></option>
+              <option value="Pelaporan Incident & Nearmis"></option>
+              <option value="Larangan Merokok"></option>
+              <option value="Larangan Penggunaan HP"></option>
             </datalist>
           </div>
           <div class="wrapper-input">
@@ -53,29 +56,24 @@
             <input type="text" name="lokasi" placeholder="lokasi" required />
           </div>
           <div class="wrapper-input">
-            <label for="topikPembahasan">Topik Pembahasan: </label>
-            <textarea
-              name="topikPembahasan"
-              placeholder="topik pembahasan"
-              id=""
-              required
-            ></textarea>
-          </div>
-          <div class="wrapper-input">
-            <label for="jumPeserta">Jumlah Peserta: </label>
+            <label for="pekerjaan">Pekerjaan: </label>
             <input
-              type="number"
-              name="jumPeserta"
-              placeholder="jumlah peserta"
+              type="text"
+              placeholder="Pekerjaan"
+              name="pekerjaan"
               required
             />
           </div>
           <div class="wrapper-input">
-            <label for="chairman">Chairman: </label>
+            <label for="temuan">Temuan: </label>
+            <input type="text" name="temuan" placeholder="Temuan" required />
+          </div>
+          <div class="wrapper-input">
+            <label for="rekomendasi">Rekomendasi: </label>
             <input
               type="text"
-              name="chairman"
-              placeholder="chairman"
+              name="rekomendasi"
+              placeholder="Rekomendasi"
               required
             />
           </div>
@@ -89,12 +87,12 @@
               submit
             </button>
             <!-- <button>
-              <span class="material-symbols-outlined"> download </span>
-            </button> -->
+                <span class="material-symbols-outlined"> download </span>
+              </button> -->
           </div>
         </form>
       </div>
     </main>
-    <script src="assets/js/script-attend-list.js"></script>
+    <script src="assets/js/script-hse.js"></script>
   </body>
 </html>
