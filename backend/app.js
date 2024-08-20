@@ -9,6 +9,12 @@ const cors = require("cors");
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, "../interfaces")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "interface", "main.html"));
+});
+
 // table PTI
 app.get("/laporan-pti", (req, res) => {
   const sql = "SELECT * FROM test_laporan_pti";
