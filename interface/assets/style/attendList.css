@@ -8,11 +8,12 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   /* border: 1px solid; */
 }
 
 header img.img-logo {
-  width: 70px;
+  width: 180px;
   height: 70px;
   object-fit: contain;
   /* border: 1px solid; */

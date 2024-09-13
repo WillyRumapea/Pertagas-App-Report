@@ -1,5 +1,6 @@
 const formHSE = document.querySelector("#form-hse-report");
 const inputKolom = document.querySelectorAll("input");
+const buttonDownload = document.getElementById("download-excel");
 
 formHSE.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -23,14 +24,23 @@ formHSE.addEventListener("submit", async (e) => {
       rekomendasi: formHSE.rekomendasi.value,
       pelapor: formHSE.pelapor.value,
     };
-    await fetch("http://localhost:8000/laporan-hse", {
+
+    await fetch("http://localhost:5000/laporan-hse", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    alert("data berhasil di input");
+    Swal.fire({
+      title: "Good job!",
+      text: "Your Report is record",
+      icon: "success",
+    });
   }
   formHSE.reset();
+});
+
+buttonDownload.addEventListener("click", () => {
+  window.location.href = "http://localhost:5000/convert-excel-hse";
 });

@@ -1,5 +1,6 @@
 const inputLaporan = document.querySelector("#form-laporan");
 const inputKolom = document.querySelectorAll("input");
+const buttonDownload = document.getElementById("download-excel");
 
 const noPol = {
   "Foco Truck": ["BM 8141 EU", "BM 8142 EU"],
@@ -64,14 +65,22 @@ inputLaporan.addEventListener("submit", async (e) => {
       km_driven: inputLaporan.kmDriven.value,
       hours_meter: inputLaporan.hoursMeter.value,
     };
-    await fetch("http://localhost:8000/laporan-pti", {
+    await fetch("http://localhost:5000/laporan-pti", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    alert("data berhasil di input");
+    Swal.fire({
+      title: "Good job!",
+      text: "Your Report is record",
+      icon: "success",
+    });
   }
   inputLaporan.reset();
+});
+
+buttonDownload.addEventListener("click", () => {
+  window.location.href = "http://localhost:5000/convert-excel-pti";
 });

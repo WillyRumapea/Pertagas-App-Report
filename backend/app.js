@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
-const port = 8000;
+const port = 5000;
+const XLXS = require("xlsx");
 const response = require("./response");
-const path = require("path");
 const connect = require("./conn");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -10,10 +10,85 @@ const cors = require("cors");
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, "../interfaces")));
+app.get("/convert-excel-pti", async (req, res) => {
+  connect.query("SELECT * FROM test_laporan_pti", (err, rows) => {
+    if (err) {
+      console.log(err);
+      response(500, null, "tidak ada data yang di convert", res);
+      return;
+    }
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "interface", "main.html"));
+    console.log("Data rows:", rows);
+    const worksheet = XLXS.utils.json_to_sheet(rows);
+    const workbook = XLXS.utils.book_new();
+    XLXS.utils.book_append_sheet(workbook, worksheet, "Data");
+
+    const excelBuffer = XLXS.write(workbook, {
+      type: "buffer",
+      bookType: "xlsx",
+    });
+
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.setHeader("Content-Disposition", "attachment; filename=data.xlsx");
+    res.send(excelBuffer);
+  });
+});
+
+app.get("/convert-excel-att-list", async (req, res) => {
+  connect.query("SELECT * FROM test_laporan_att_list", (err, rows) => {
+    if (err) {
+      console.log(err);
+      response(500, null, "tidak ada data yang di convert", res);
+      return;
+    }
+
+    console.log("Data rows:", rows);
+    const worksheet = XLXS.utils.json_to_sheet(rows);
+    const workbook = XLXS.utils.book_new();
+    XLXS.utils.book_append_sheet(workbook, worksheet, "Data");
+
+    const excelBuffer = XLXS.write(workbook, {
+      type: "buffer",
+      bookType: "xlsx",
+    });
+
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.setHeader("Content-Disposition", "attachment; filename=data.xlsx");
+    res.send(excelBuffer);
+  });
+});
+
+app.get("/convert-excel-hse", async (req, res) => {
+  connect.query("SELECT * FROM table_laporan_hse", (err, rows) => {
+    if (err) {
+      console.log(err);
+      response(500, null, "tidak ada data yang di convert", res);
+      return;
+    }
+
+    console.log("Data rows:", rows);
+    const worksheet = XLXS.utils.json_to_sheet(rows);
+    const workbook = XLXS.utils.book_new();
+    XLXS.utils.book_append_sheet(workbook, worksheet, "Data");
+
+    const excelBuffer = XLXS.write(workbook, {
+      type: "buffer",
+      bookType: "xlsx",
+    });
+
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.setHeader("Content-Disposition", "attachment; filename=data.xlsx");
+    res.send(excelBuffer);
+  });
 });
 
 // table PTI

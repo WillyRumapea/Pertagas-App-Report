@@ -10,7 +10,7 @@ connection.connect((err) => {
   if (err) {
     throw err;
   }
-  console.log("koneksi ke database berhasil");
+  console.log("Koneksi ke database berhasil");
 });
 
 module.exports = connection;

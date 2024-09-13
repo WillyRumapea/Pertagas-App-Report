@@ -1,9 +1,9 @@
 const buttonForm = document.querySelectorAll(".button-report-list button");
 
 const addresFrom = {
-  ATT: "../../interface/form-atd-list.html",
-  HSE: "../../interface/form-hse.html",
-  PTI: "../../interface/form-pti.html",
+  ATT: "form-atd-list.html",
+  HSE: "form-hse.html",
+  PTI: "form-pti.html",
 };
 
 buttonForm.forEach((button, index) => {
